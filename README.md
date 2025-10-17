@@ -36,11 +36,7 @@ aws configure
  * Default region name [None]: ap-south-1
  * Default output format [None]: json
    
-### Create the s3 bucket
-## GitHub repository & secrets for CI/CD (Settings → Secrets and variables → Actions):
- - `AWS_REGION` (e.g., `us-east-1`)
- - `S3_BUCKET` (your bucket name)
-   
+### Create the s3 bucket  
 ```bash
 AWS_REGION=<your aws preffered region>
 S3_BUCKET=<your_unique-bucket-name>
