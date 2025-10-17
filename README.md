@@ -98,6 +98,7 @@ CloudFront will serve your site over HTTPS at a `https://<random>.cloudfront.net
 
 Create the distribution pointing to your S3 website endpoint:
 ```bash
+sudo apt install jq -y
 # Requirements on your machine: AWS CLI, jq
 chmod +x scripts/create-cloudfront.sh
 ./scripts/create-cloudfront.sh "$BUCKET" "$AWS_REGION"
