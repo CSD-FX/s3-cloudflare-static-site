@@ -89,7 +89,7 @@ Create the distribution pointing to your S3 website endpoint:
 sudo apt install jq -y
 # Requirements on your machine: AWS CLI, jq
 chmod +x scripts/create-cloudfront.sh
-./scripts/create-cloudfront.sh "$S3_BUCKET" "$AWS_REGION"
+./scripts/create-cloudfront.sh <your_S3_BUCKET_name> <your_AWS_REGION>
 # Output will include Distribution Id and Domain (copy both)
 ```
 What the script sets:
