@@ -8,7 +8,21 @@ This variant uses S3 for storage and CloudFront for global CDN + HTTPS, using th
 - `scripts/create-bucket.sh` – create and configure S3 bucket (public read + versioning)
 - `scripts/policy-public-read.json` – bucket policy template
 - `scripts/upload-local.sh` – manual upload helper
-- `scripts/create-cloudfront.sh` – create a CloudFront distribution pointing to the S3 website endpoint
+- `scripts/create-cloudfront.sh` – create a CloudFront distribution pointing to the S3 website endpoint.
+
+---
+
+## URL Health Checks
+![URL Health Checks](./images/Url_health_checks.png)
+
+## Initial Deployed Code
+![Initial Deployed Code](./images/initial_deployed_code.png)
+
+## GitHub Actions
+![GitHub Actions Screenshot](./images/Git-hub_actions_SS.png)
+
+## Updated Index Code
+![Updated Index Code](./images/Updated_index_code.png)
 
 ---
 
