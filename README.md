@@ -31,7 +31,7 @@ This variant uses S3 for storage and CloudFront for global CDN + HTTPS, using th
 ## 1) AWS CLI (automated)
 Requirements: AWS CLI configured (`aws configure`) and IAM user with S3 permissions.
 ```bash
-git clone <your-repo-url> s3-cloudflare-static-site
+git clone https://github.com/CSD-FX/s3-cloudflare-static-site.git
 cd s3-cloudflare-static-site
 ```
 ### Create a GitHub Repo and push these onto your new Repo.
