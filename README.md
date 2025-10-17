@@ -16,7 +16,7 @@ This variant uses S3 for storage and CloudFront for global CDN + HTTPS, using th
 ![URL Health Checks](./images/Url_health_checks.png)
 
 ## Initial Deployed Code
-![Initial Deployed Code](./images/initial_deployed_code.png)
+![Initial Deployed Code](./images/Initial_deployed_code.png)
 
 ## GitHub Actions
 ![GitHub Actions Screenshot](./images/Git-hub_actions_SS.png)
