@@ -43,7 +43,7 @@ aws configure
    
 ```bash
 AWS_REGION=<your aws preffered region>
-BUCKET=<your_unique-bucket-name>
+S3_BUCKET=<your_unique-bucket-name>
 ./scripts/create-bucket.sh "$S3_BUCKET" "$AWS_REGION"
 ```
 ```bash
