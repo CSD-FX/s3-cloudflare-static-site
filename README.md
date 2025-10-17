@@ -37,6 +37,10 @@ aws configure
  * Default output format [None]: json
    
 ### Create the s3 bucket
+### GitHub repository & secrets for CI/CD (Settings → Secrets and variables → Actions):
+ - `AWS_REGION` (e.g., `us-east-1`)
+ - `S3_BUCKET` (your bucket name)
+   
 ```bash
 AWS_REGION=us-east-1
 BUCKET=my-unique-bucket-name
