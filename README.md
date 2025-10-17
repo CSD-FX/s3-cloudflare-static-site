@@ -69,12 +69,13 @@ sudo ./aws/install
 ```bash
 aws configure
 ```
-# ADD THESE
+### Add these
  * AWS Access Key ID [None]: YOUR_ACCESS_KEY
  * AWS Secret Access Key [None]: YOUR_SECRET_KEY
  * Default region name [None]: ap-south-1
  * Default output format [None]: json
-
+   
+### Create the s3 bucket
 ```bash
 AWS_REGION=us-east-1
 BUCKET=my-unique-bucket-name
