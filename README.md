@@ -118,17 +118,8 @@ Note: After creation, initial CloudFront deployment takes a few minutes. The scr
 ## 3) GitHub repository & secrets for CI/CD (Settings → Secrets and variables → Actions):
 - `CLOUDFRONT_DISTRIBUTION_ID` (the Distribution Id printed by `create-cloudfront.sh`)
 
-Workflow `.github/workflows/deploy.yml` on push to `main/master` will:
-- inject commit SHA into `app.js`
-- upload files to S3 with correct cache headers
-- create a CloudFront invalidation for `index.html`, `styles.css`, `app.js`
-
 ## 4) Verify end-to-end
 - Visit the printed CloudFront domain, e.g., `https://d123abcd.cloudfront.net/`.
-- Open DevTools → Network:
-  - `server: CloudFront`
-  - `via: 1.1 <edge-node> (CloudFront)`
-  - `cache-control` headers align with our upload settings
 
 ## 5) Rollback
 - In S3, enable “Show versions”, select an older version of an object, and “Restore” (or copy that version to the same key).
@@ -138,3 +129,5 @@ Workflow `.github/workflows/deploy.yml` on push to `main/master` will:
 - **403 AccessDenied (S3)**: ensure public-read bucket policy is attached and public access block is relaxed for the bucket.
 - **404 Not Found**: confirm files exist at the bucket root; check S3 website hosting is enabled.
 - **Stale content**: re-run CI; CloudFront invalidation may take a few minutes to propagate.
+
+--- ✌🏼 THE END 😊 ---
