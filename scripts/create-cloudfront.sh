@@ -31,7 +31,7 @@ CONFIG=$(cat <<JSON
           "HTTPPort": 80,
           "HTTPSPort": 443,
           "OriginProtocolPolicy": "http-only",
-          "OriginSSLProtocols": {"Quantity": 3, "Items": ["TLSv1", "TLSv1.1", "TLSv1.2"]}
+          "OriginSslProtocols": {"Quantity": 3, "Items": ["TLSv1", "TLSv1.1", "TLSv1.2"]}
         }
       }
     ]
@@ -39,12 +39,18 @@ CONFIG=$(cat <<JSON
   "DefaultCacheBehavior": {
     "TargetOriginId": "s3-website-$BUCKET",
     "ViewerProtocolPolicy": "redirect-to-https",
-    "AllowedMethods": {"Quantity": 2, "Items": ["GET", "HEAD"]},
-    "CachedMethods": {"Quantity": 2, "Items": ["GET", "HEAD"]},
+    "AllowedMethods": {
+        "Quantity": 2,
+        "Items": ["GET", "HEAD"],
+        "CachedMethods": {
+            "Quantity": 2,
+            "Items": ["GET", "HEAD"]
+        }
+    },
     "Compress": true,
     "ForwardedValues": {
-      "QueryString": false,
-      "Cookies": {"Forward": "none"}
+        "QueryString": false,
+        "Cookies": {"Forward": "none"}
     },
     "MinTTL": 0,
     "DefaultTTL": 300,
