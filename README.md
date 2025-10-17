@@ -72,13 +72,8 @@ AWS_REGION=$AWS_REGION S3_BUCKET=$S3_BUCKET ./scripts/upload-local.sh
   - Error document: `index.html` (single-page-app friendly)
   - Note the “Bucket website endpoint” value; you will use it in Cloudflare CNAME.
 
-What the script does:
-- Creates the bucket and turns off public-access blocking for policy use
-- Applies a public read bucket policy (objects readable by anyone)
-- Enables Versioning
-- Enables Static website hosting (index+error = `index.html`) and prints the website endpoint
-
-### GitHub repository & secrets for CI/CD (Settings → Secrets and variables → Actions):
+# Create a GitHub Repo and push these onto your new Repo.
+# GitHub repository & secrets for CI/CD (Settings → Secrets and variables → Actions):
  - `AWS_REGION` (e.g., `us-east-1`)
  - `S3_BUCKET` (your bucket name)
  - `AWS_ACCESS_KEY_ID` (your IAM user ID)
