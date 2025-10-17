@@ -49,7 +49,7 @@ S3_BUCKET=<your_unique-bucket-name>
 ```bash
 chmod +x ./scripts/upload-local.sh
 # Optional: push initial files with proper cache headers
-AWS_REGION=$AWS_REGION S3_BUCKET=$BUCKET ./scripts/upload-local.sh
+AWS_REGION=$AWS_REGION S3_BUCKET=$S3_BUCKET ./scripts/upload-local.sh
 ```
 
 ### Then configure the bucket:
