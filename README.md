@@ -14,53 +14,14 @@ This variant uses S3 for storage and CloudFront for global CDN + HTTPS, using th
 
 # Step-by-step Guide
 
-## 1) Create and configure an S3 bucket for public access
-
-You can do this with either the AWS Console (clicks) or AWS CLI (commands). Public read is required because Cloudflare will fetch your files from S3.
-
-### Option A — AWS Console (UI)
-- Log in to AWS Console → S3 → Create bucket.
-- **Bucket name**: globally unique, lowercase (example: `my-site-prod`).
-- **Region**: choose closest to your audience (example: `us-east-1`).
-- Uncheck “Block all public access” (you will get a warning; we add a read-only policy next).
-- Create bucket.
-
-Then configure the bucket:
-- Open the bucket → Permissions tab.
-- Under “Bucket policy”, paste this JSON, replacing `BUCKET_NAME`:
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "PublicReadGetObject",
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::BUCKET_NAME/*"
-    }
-  ]
-}
-```
-- “Access control list (ACL)”: keep default (objects are readable via the policy above).
-- “Bucket Versioning”: enable it (Properties tab → Versioning → Enable).
-- “Static website hosting”: Properties tab → Static website hosting → Enable →
-  - Index document: `index.html`
-  - Error document: `index.html` (single-page-app friendly)
-  - Note the “Bucket website endpoint” value; you will use it in Cloudflare CNAME.
-
-Upload initial files (for a quick manual test):
-- Objects tab → Upload → Add `index.html`, `styles.css`, `app.js` from this repo root → Upload.
-- Click the “Object URL” for `index.html`. If Block Public Access is properly disabled and policy applied, it should load over HTTP.
-
-### Option B — AWS CLI (automated)
+## 1) AWS CLI (automated)
 Requirements: AWS CLI configured (`aws configure`) and IAM user with S3 permissions.
 ```bash
 git clone <your-repo-url> s3-cloudflare-static-site
 cd s3-cloudflare-static-site
 ```
 ```bash
-Sudo apt install unzip -y
+sudo apt install unzip -y
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 chmod +x ./scripts/create-bucket.sh
@@ -86,6 +47,31 @@ chmod +x ./scripts/upload-local.sh
 # Optional: push initial files with proper cache headers
 AWS_REGION=$AWS_REGION S3_BUCKET=$BUCKET ./scripts/upload-local.sh
 ```
+
+### Then configure the bucket:
+- Open the bucket → Permissions tab.
+- Under “Bucket policy”, paste this JSON, replacing `BUCKET_NAME`:
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::BUCKET_NAME/*"
+    }
+  ]
+}
+```
+- “Access control list (ACL)”: keep default (objects are readable via the policy above).
+- “Bucket Versioning”: enable it (Properties tab → Versioning → Enable).
+- “Static website hosting”: Properties tab → Static website hosting → Enable →
+  - Index document: `index.html`
+  - Error document: `index.html` (single-page-app friendly)
+  - Note the “Bucket website endpoint” value; you will use it in Cloudflare CNAME.
+
 What the script does:
 - Creates the bucket and turns off public-access blocking for policy use
 - Applies a public read bucket policy (objects readable by anyone)
