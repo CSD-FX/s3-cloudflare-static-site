@@ -58,11 +58,30 @@ Requirements: AWS CLI configured (`aws configure`) and IAM user with S3 permissi
 ```bash
 git clone <your-repo-url> s3-cloudflare-static-site
 cd s3-cloudflare-static-site
+```
+```bash
+Sudo apt install unzip -y
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+chmod +x ./scripts/create-bucket.sh
+sudo ./aws/install
+```
+```bash
+aws configure
+```
+# ADD THESE
+ * AWS Access Key ID [None]: YOUR_ACCESS_KEY
+ * AWS Secret Access Key [None]: YOUR_SECRET_KEY
+ * Default region name [None]: ap-south-1
+ * Default output format [None]: json
 
+```bash
 AWS_REGION=us-east-1
 BUCKET=my-unique-bucket-name
 ./scripts/create-bucket.sh "$BUCKET" "$AWS_REGION"
-
+```
+```bash
+chmod +x ./scripts/upload-local.sh
 # Optional: push initial files with proper cache headers
 AWS_REGION=$AWS_REGION S3_BUCKET=$BUCKET ./scripts/upload-local.sh
 ```
