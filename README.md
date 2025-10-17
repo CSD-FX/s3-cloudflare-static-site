@@ -78,6 +78,12 @@ What the script does:
 - Enables Versioning
 - Enables Static website hosting (index+error = `index.html`) and prints the website endpoint
 
+### GitHub repository & secrets for CI/CD (Settings → Secrets and variables → Actions):
+ - `AWS_REGION` (e.g., `us-east-1`)
+ - `S3_BUCKET` (your bucket name)
+ - `AWS_ACCESS_KEY_ID` (your IAM user ID)
+ - `AWS_SECRET_ACCESS_KEY` (IAM User secrect ID)
+
 ## 2) CloudFront: create a distribution (HTTPS + CDN)
 
 CloudFront will serve your site over HTTPS at a `https://<random>.cloudfront.net` domain and cache content globally.
@@ -99,12 +105,9 @@ What the script sets:
 
 Note: After creation, initial CloudFront deployment takes a few minutes. The script prints the CloudFront domain, e.g. `d123abcd.cloudfront.net`.
 
-## 3) GitHub repository & secrets for CI/CD
-Push this repo to GitHub, then add repository secrets (Settings → Secrets and variables → Actions):
+## 3) GitHub repository & secrets for CI/CD (Settings → Secrets and variables → Actions):
 - `AWS_ACCESS_KEY_ID`
 - `AWS_SECRET_ACCESS_KEY`
-- `AWS_REGION` (e.g., `us-east-1`)
-- `S3_BUCKET` (your bucket name)
 - `CLOUDFRONT_DISTRIBUTION_ID` (the Distribution Id printed by `create-cloudfront.sh`)
 
 Workflow `.github/workflows/deploy.yml` on push to `main/master` will:
