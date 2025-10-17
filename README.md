@@ -72,8 +72,8 @@ AWS_REGION=$AWS_REGION S3_BUCKET=$S3_BUCKET ./scripts/upload-local.sh
   - Error document: `index.html` (single-page-app friendly)
   - Note the “Bucket website endpoint” value; you will use it in Cloudflare CNAME.
 
-# Create a GitHub Repo and push these onto your new Repo.
-# GitHub repository & secrets for CI/CD (Settings → Secrets and variables → Actions):
+### Create a GitHub Repo and push these onto your new Repo.
+### GitHub repository & secrets for CI/CD (Settings → Secrets and variables → Actions):
  - `AWS_REGION` (e.g., `us-east-1`)
  - `S3_BUCKET` (your bucket name)
  - `AWS_ACCESS_KEY_ID` (your IAM user ID)
