@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>S3 + Cloudflare Static Site</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>S3 + Cloudflare + GitHub Actions</h1>
+    <p>This site is deployed to <strong>Amazon S3</strong>, cached and served via <strong>Cloudflare</strong>, and auto-updated by <strong>GitHub Actions</strong>.</p>
+    <p>Check the version below to confirm deployments:</p>
+    <pre id="version"></pre>
+    <p>Health: <code>200 OK</code> if this file loads via Cloudflare.</p>
+    <footer>
+      <small>Cached by Cloudflare • Built <span id="built"></span></small>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
