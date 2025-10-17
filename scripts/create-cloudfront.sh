@@ -13,7 +13,7 @@ fi
 BUCKET="$1"
 REGION="$2"
 
-WEBSITE_DOMAIN="$BUCKET.s3-website-$REGION.amazonaws.com"
+WEBSITE_DOMAIN="$BUCKET.s3-website.$REGION.amazonaws.com"
 
 CONFIG=$(cat <<JSON
 {
