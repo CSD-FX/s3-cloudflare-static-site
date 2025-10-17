@@ -20,6 +20,8 @@ Requirements: AWS CLI configured (`aws configure`) and IAM user with S3 permissi
 git clone <your-repo-url> s3-cloudflare-static-site
 cd s3-cloudflare-static-site
 ```
+### Create a GitHub Repo and push these onto your new Repo.
+
 ```bash
 sudo apt install unzip -y
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -72,7 +74,6 @@ AWS_REGION=$AWS_REGION S3_BUCKET=$S3_BUCKET ./scripts/upload-local.sh
   - Error document: `index.html` (single-page-app friendly)
   - Note the “Bucket website endpoint” value; you will use it in Cloudflare CNAME.
 
-### Create a GitHub Repo and push these onto your new Repo.
 ### GitHub repository & secrets for CI/CD (Settings → Secrets and variables → Actions):
  - `AWS_REGION` (e.g., `us-east-1`)
  - `S3_BUCKET` (your bucket name)
